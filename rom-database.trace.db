@@ -1,0 +1,6 @@
+08-07 18:16:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "RECIPE" not found; SQL statement:
+SELECT ID FROM RECIPE WHERE ID <> ID [42102-175]
+08-07 18:16:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" not found; SQL statement:
+SELECT ID FROM USER WHERE ID <> ID [42102-175]

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+    <persistence-unit name="Default" transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+        <properties>
+            <property name="eclipselink.ddl-generation" value="create-tables"/>
+            <property name="eclipselink.ddl-generation.output-mode" value="database"/>
+            <property name="eclipselink.logging.level" value="FINE"/>
+            <!-- disable weaving -->
+            <property name="eclipselink.weaving" value="false"/>
+            <!-- disable JPA cache -->
+            <property name="eclipselink.cache.shared.default" value="false"/>
+
+            <!--  Optimization #13 - close EntityManager on commit, to avoid cost of resume -->
+            <property name="eclipselink.persistence-context.close-on-commit" value="true" />
+            <!--  Optimization #14 - avoid auto flush cost on query execution -->
+            <property name="eclipselink.persistence-context.flush-mode" value="commit" />
+            <!--  Optimization #15 - avoid cost of persist on commit -->
+            <property name="eclipselink.persistence-context.persist-on-commit" value="false" />
+
+        </properties>
+
+        <class>fr.ropiteaux.rom.core.model.Recipe</class>
+        <class>fr.ropiteaux.rom.core.model.User</class>
+    </persistence-unit>
+</persistence>
